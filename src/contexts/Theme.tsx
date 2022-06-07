@@ -1,21 +1,24 @@
-import React, { useState } from "react";
-import { Severity } from "../types";
+import React from "react";
 
 export interface ThemeValue {
     theme: "light"|"dark"|null,
-    setTheme(newTheme: "light"|"dark"): void
+    toggleTheme(): void
 };
 
 export const ThemeContext = React.createContext<ThemeValue>({
     theme: null,
-    setTheme: () => {},
+    toggleTheme: () => {},
 });
 
 export function ThemeProvider(props: { children: React.ReactNode }) {
-    const [theme, setTheme] = useState<"light"|"dark"|null>(null);
+    const [theme, setTheme] = React.useState<"light"|"dark"|null>(null);
+    
+    const toggleTheme = () => setTheme(prevState => (
+        prevState === "light" ? "dark" : "light"
+    ));
     
     return (
-        <ThemeContext.Provider value={{ theme, setTheme }}>
+        <ThemeContext.Provider value={{ theme, toggleTheme }}>
             {props.children}
         </ThemeContext.Provider>
     );
