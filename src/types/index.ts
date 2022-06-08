@@ -10,3 +10,14 @@ export type OrderByClasule = readonly [FieldPath|string, OrderByDirection];
 export type ScreenProps = NativeStackScreenProps<{}>;
 
 export type RGB = { r: number, g: number, b: number };
+
+export type ColorPalette = {
+    primary: {
+        [darkness: number]: string
+    }
+};
+
+export type ThemeColors = {
+    light: ColorPalette,
+    dark: ColorPalette
+};
