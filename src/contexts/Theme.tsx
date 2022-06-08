@@ -1,6 +1,6 @@
 import React from "react";
 
-const initialTheme = "dark";
+const initialTheme = "light";
 
 export interface ThemeValue {
     theme: "light"|"dark",
