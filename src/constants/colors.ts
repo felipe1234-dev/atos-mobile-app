@@ -1,34 +1,30 @@
-const colors = {
+import { lightenColor, RGBtoString } from "../functions";
+import { ThemeColors } from "../types";
+
+const colors: ThemeColors = { 
     light: {
-        primary: {
-            0: "#ffffff",
-            10: "rgba(76, 110, 228, .1)",
-            20: "rgba(76, 110, 228, .2)",
-            30: "rgba(76, 110, 228, .3)",
-            40: "rgba(76, 110, 228, .4)",
-            50: "rgba(76, 110, 228, .5)",
-            60: "rgba(76, 110, 228, .6)",
-            70: "rgba(76, 110, 228, .7)",
-            80: "rgba(76, 110, 228, .8)",
-            90: "rgba(76, 110, 228, .9)",
-            100: "rgba(76, 110, 228, 1)"
-        }
+        primary: {}
     },
     dark: {
-        primary: {
-            0: "#ffffff",
-            10: "#eaeaea",
-            20: "#d5d5d5",
-            30: "#bfbfbf",
-            40: "#aaaaaa",
-            50: "#959595",
-            60: "#808080",
-            70: "#6b6b6b",
-            80: "#555555",
-            90: "#404040",
-            100: "#2b2b2b"
-        }
+        primary: {}
     }
 };
+
+for (let amount = 0; amount <= 100; amount += 10) {
+    const themes: Array<"light"|"dark"> = [ "light", "dark" ];
+    const lightAmount = 1 - amount/100;
+    const darkAmount = amount;
+    
+    themes.forEach((theme) => {
+        const basePrimary = {
+            light: { r: 76, g: 110, b: 228 },
+            dark: { r: 43, g: 43, b: 43 }
+        };
+        
+        colors[theme].primary[darkAmount] = RGBtoString(
+            lightenColor(basePrimary[theme], lightAmount)
+        );
+    });
+}
 
 export default colors;
