@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { NativeBaseProvider } from "native-base";
 import { ThemeProvider } from "./Theme";
 import { FirebaseProvider } from "./Firebase";
 import { UserProvider } from "./User";
@@ -20,7 +19,6 @@ const ProviderCompose = (props: {
 export const MasterProvider = (props: { children: ReactNode }) => (
     <ProviderCompose providers={[
         SafeAreaProvider,
-        NativeBaseProvider,
         ThemeProvider,
         FirebaseProvider,
         UserProvider,
