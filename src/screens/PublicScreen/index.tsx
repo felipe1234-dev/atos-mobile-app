@@ -1,26 +1,51 @@
-import { Box, Text, Heading, Center } from "native-base";
+import React from "react";
+import { StyleSheet, Image } from "react-native";
+import { Avatar, Box, Text } from "@react-native-material/core";
+
+import DarkThemeLogo from "../../assets/atos-logo-in-dark.png";
+import LightThemeLogo from "../../assets/atos-logo-in-light.png";
+
+import { ThemeContext, ThemeValue } from "../../contexts/Theme";
 import { ScreenProps } from "../../types";
-import HomeScreen from "./HomeScreen";
 
 export default function PublicScreen(props: ScreenProps) {
+    const { theme, palette } = React.useContext(ThemeContext);
+    
     return (
-        <Box
-            bg="primary.50"
-            minWidth="100vw" 
-            minHeight="100vh"
-        >
-            <Center>
-                <Heading>
-                    A componendsdt library for the{" "}
-                    <Heading color="emerald.400">
-                        React Ecosystem
-                    </Heading>
-                </Heading>
-                <Text pt="3" fontWeight="md">
-                    NativeBase is a simple, modular and accessible component library that
-                    gives you building blocks to build you React applications.
-                </Text>
-            </Center>
+        <Box style={styles({ theme, palette }).outerBox}>
+            <Box style={styles({ theme, palette }).innerBox}>
+                <Image
+                    source={{ uri: DarkThemeLogo }}
+                    style={styles({ theme, palette }).logo}
+                />
+            </Box>
         </Box>
     );
 };
+
+const styles = ({ palette, theme }: Omit<ThemeValue, "toggleTheme">) => StyleSheet.create({
+    outerBox: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: "100vh",
+        minWidth: "100vw",
+        backgroundColor: palette.primary[100]
+    },
+    innerBox: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 10
+    },
+    logo: {
+        position: "relative",
+        width: 100,
+        height: 80,
+        opacity: 1,
+        zIndex: 1,
+        resizeMode: "contain"
+    }
+});
