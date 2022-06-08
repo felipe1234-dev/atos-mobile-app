@@ -49,4 +49,5 @@ const styles = ({ palette, theme }: Omit<ThemeValue, "toggleTheme">) => (
             zIndex: 1,
             resizeMode: "contain"
         }
-});
+    })
+);
