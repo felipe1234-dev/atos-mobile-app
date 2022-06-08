@@ -23,29 +23,30 @@ export default function PublicScreen(props: ScreenProps) {
     );
 };
 
-const styles = ({ palette, theme }: Omit<ThemeValue, "toggleTheme">) => StyleSheet.create({
-    outerBox: {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        minHeight: "100vh",
-        minWidth: "100vw",
-        backgroundColor: palette.primary[100]
-    },
-    innerBox: {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: 10
-    },
-    logo: {
-        position: "relative",
-        width: 100,
-        height: 80,
-        opacity: 1,
-        zIndex: 1,
-        resizeMode: "contain"
-    }
+const styles = ({ palette, theme }: Omit<ThemeValue, "toggleTheme">) => (
+    StyleSheet.create({
+        outerBox: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            minHeight: "100vh",
+            minWidth: "100vw",
+            backgroundColor: palette.primary[100]
+        },
+        innerBox: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 10
+        },
+        logo: {
+            position: "relative",
+            width: 100,
+            height: 80,
+            opacity: 1,
+            zIndex: 1,
+            resizeMode: "contain"
+        }
 });
