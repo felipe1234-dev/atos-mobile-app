@@ -28,3 +28,7 @@ export function lightenColor(rgb: RGB, inAmount: number): RGB {
         b: Math.min(255, rgb.b + 255 * inAmount)
     });
 };
+
+export function RGBtoString({ r, g, b }: RGB): string {
+    return `rgb(${r}, ${g}, ${b})`;
+};
