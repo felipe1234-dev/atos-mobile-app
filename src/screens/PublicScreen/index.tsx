@@ -2,10 +2,10 @@ import React from "react";
 import { StyleSheet, Image } from "react-native";
 import { Box, Text } from "@react-native-material/core";
 
-import DarkThemeLogo from "../../assets/atos-logo-in-dark.png";
-
+import ATOSLogo from "../../assets/atos-logo-in-dark.png";
 import { ThemeContext, ThemeValue } from "../../contexts/Theme";
 import { ScreenProps } from "../../types";
+import { app } from "../../constants";
 
 export default function PublicScreen(props: ScreenProps) {
     const { theme, palette } = React.useContext(ThemeContext);
@@ -15,14 +15,14 @@ export default function PublicScreen(props: ScreenProps) {
         <Box style={styles.outerBox}>
             <Box style={styles.innerBox}>
                 <Image
-                    source={{ uri: DarkThemeLogo }}
+                    source={{ uri: ATOSLogo }}
                     style={styles.logo}
                 />
-                <Text variant="h3" style={styles.title}>
-                    Title
+                <Text variant="h3" style={styles.appName}>
+                    {app.name}
                 </Text>
-                <Text variant="h5" style={styles.subtitle}>
-                    Subtitle
+                <Text variant="h5" style={styles.catchline}>
+                    {app.catchline}
                 </Text>
             </Box>
         </Box>
@@ -55,11 +55,13 @@ const getStyles = ({ palette, theme }: Omit<ThemeValue, "toggleTheme">) => (
             zIndex: 1,
             resizeMode: "contain"
         },
-        title: {
+        appName: {
+            fontSize: 16,
             color: palette.primary[0],
             marginTop: 16
         },
-        subtitle: {
+        catchline: {
+            fontSize: 13,
             color: palette.primary[50],
             marginTop: 5
         }
