@@ -4,13 +4,14 @@ import * as WebBrowser from "expo-web-browser";
 import { Box, Text, Button, HStack } from "@react-native-material/core";
 
 import ATOSLogo from "../../assets/atos-logo-in-dark.png";
-import { ThemeContext, ThemeValue } from "../../contexts/Theme";
+import useStyles from "./useStyles";
+import { ThemeContext } from "../../contexts/Theme";
 import { ScreenProps } from "../../types";
 import { app } from "../../constants";
 
 export default function PublicScreen(props: ScreenProps) {
     const { theme, palette } = React.useContext(ThemeContext);
-    const styles = getStyles({ theme, palette });
+    const styles = useStyles({ theme, palette });
     
     return (
         <Box style={styles.outerBox}>
@@ -27,6 +28,24 @@ export default function PublicScreen(props: ScreenProps) {
                 <Text variant="h5" style={styles.catchline}>
                     {app.catchline}
                 </Text>
+                <HStack fill center spacing={13}>
+                    <Button
+                        color={palette.primary[0]}
+                        tintColor={palette.primary[100]}
+                        title="Entrar"
+                        disableElevation
+                        uppercase={false}
+                        style={styles.button}
+                    />
+                    <Button 
+                        color={palette.primary[0]}
+                        tintColor={palette.primary[100]}
+                        title="Cadastrar"
+                        disableElevation
+                        uppercase={false}
+                        style={styles.button}
+                    />
+                </HStack>
             </Box>
         </Box>
     );
