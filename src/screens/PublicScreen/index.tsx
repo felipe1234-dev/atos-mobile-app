@@ -1,6 +1,7 @@
 import React from "react";
-import { StyleSheet, Image } from "react-native";
-import { Box, Text } from "@react-native-material/core";
+import { Image, TouchableOpacity } from "react-native";
+import * as WebBrowser from "expo-web-browser";
+import { Box, Text, Button, HStack } from "@react-native-material/core";
 
 import ATOSLogo from "../../assets/atos-logo-in-dark.png";
 import { ThemeContext, ThemeValue } from "../../contexts/Theme";
@@ -14,10 +15,12 @@ export default function PublicScreen(props: ScreenProps) {
     return (
         <Box style={styles.outerBox}>
             <Box style={styles.innerBox}>
+                <TouchableOpacity onPress={() => WebBrowser.openBrowserAsync(app.websiteURL)}>
                 <Image
                     source={{ uri: ATOSLogo }}
                     style={styles.logo}
                 />
+                </TouchableOpacity>
                 <Text variant="h3" style={styles.appName}>
                     {app.name}
                 </Text>
