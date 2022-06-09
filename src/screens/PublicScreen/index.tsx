@@ -16,10 +16,10 @@ export default function PublicScreen(props: ScreenProps) {
         <Box style={styles.outerBox}>
             <Box style={styles.innerBox}>
                 <TouchableOpacity onPress={() => WebBrowser.openBrowserAsync(app.websiteURL)}>
-                <Image
-                    source={{ uri: ATOSLogo }}
-                    style={styles.logo}
-                />
+                    <Image
+                        source={{ uri: ATOSLogo }}
+                        style={styles.logo}
+                    />
                 </TouchableOpacity>
                 <Text variant="h3" style={styles.appName}>
                     {app.name}
