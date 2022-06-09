@@ -1,6 +1,7 @@
 const app = {
     name: "Sistema de Gestão", 
-    catchline: "Aqui onde funcionários e clientes podem gerenciar seus afazeres na empresa"
+    catchline: "Conecta funcionários e clientes",
+    websiteURL: "https://atosprojetos.com.br/"
 };
 
 export default app;
